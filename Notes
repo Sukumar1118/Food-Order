@@ -1,0 +1,11 @@
+Tasks:
+=====
+-> About CDN.
+-> "crossorigin" in react CDN script tag.
+-> Explore about "React", "ReactDOM" objects and some internals in console after adding react CDN in file.
+-> Explore why two CDN files are required in React, why can't one? 
+-> Explore about react native and where it is used?
+
+
+------------
+
