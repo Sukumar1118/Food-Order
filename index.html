@@ -3,21 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" />
     <title>React</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- The HTML code(or tags) before & after the root element are 
+           rendered and displayed.
+    -->
+    <div>
+      <h1>Elements before root</h1>
+    </div>
+
+    <div id="root">
+      <!-- This tag(or HTML code) inside root elementt gets replaced by react root element 
+            created in APP.js file 
+      -->
+      <h1>This is Sukumar</h1>
+      <p>I am front-end developer</p>
+    </div>
+
+    <div>
+      <h1>Elements after root</h1>
+    </div>
 
     <script
-      crossorigin
+      
       src="https://unpkg.com/react@18/umd/react.development.js"
     ></script>
     <script
-      crossorigin
+      
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
     <script src="./App.js"></script>
+
+    <!-- Scripts order:
+          # Scripts order is important. If we place APP.js script tag before
+            react script tags, the app will throw error(React is not defined)
+            because react is not loaded by the time APP.js loaded if we place it 
+            before react scripts. 
+    -->
   </body>
 </html>
