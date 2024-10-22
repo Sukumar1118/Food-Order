@@ -29,8 +29,26 @@
 */
 
 // Create netsed elements, muliple child elements in an array sample.
+
+/*  
+    React createElemnt():
+        -> React createElemnt() creates react element and it is plain JS object
+            which represents the element.
+        -> JS object contains:
+            {
+                type: "div",
+                props: children: Array(2)
+                        0: {
+                            type: "h1",
+                            props: children: "I am h1 tag",
+                                    id: "child1"
+                        }
+                        id: "parent"
+            }
+        Syntax: React.createElement(type, props, [...children]);
+*/
 const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
+  React.createElement("div", { id: "child1", className: "greeting" }, [
     React.createElement("h1", {}, "I am h1 tag"),
     React.createElement("h2", {}, "I am h2 tag"),
   ]),
@@ -39,6 +57,7 @@ const parent = React.createElement("div", { id: "parent" }, [
     React.createElement("h2", {}, "I am h2 tag"),
   ]),
 ]);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 console.log("header: ", parent);

@@ -1,28 +1,34 @@
 # Tasks:
-
--> About CDN and uses.
 -> Explore about "React", "ReactDOM" objects and some internals in console after adding react CDN in file.
--> Explore why two CDN files are required in React, why can't one?
--> Explore about react native and where it is used?
 -> About DOM manipulation(complex operation) in react and other JS libs & frameworks.
--> About React createElement, object and render in React - what happens BTS?
+-> About ReactDOM render(old & new) in React - what happens BTS?
+
+=============================
+-> About CDN and uses.
 -> About CORS in more detail at the end.
+-> About SRI(subresource Integrity) in detail.
 
 ======================================
 
-### React is Javascript library.
+### React is a Javascript library.
+    -> React is JS library can be used on any small portion of the app like header, footer, 
+        sidebar etc. in our existing application.
+    -> It's simple JS library that offers collection of functions & components which can be 
+        used to build our application.
+### uses:
+    -> It can be used to develop:
+        1. Web applications
+        2. Mobile applications.
+        3. Large-scale enterprise applications etc.
 
 ### About ReactJS CDN links:
 ### React:
-
     -> React is a core react library responsible for handling component structure, state and lifecycle.
 
 ### ReactDOM:
-
     -> React DOM library is responsible for rendering React compnents to DOM.
 
 ### Are both libraries required?:
-
     -> React can be used in multiple environments like:
          React native for mobile Apps where react DOM is not required. React provides core logic for
          handling components and react DOM deals with web specific operation like DOM manipulation.
@@ -31,14 +37,12 @@
         split into two libraries and use it according to the requirements.
 
 ### React Native:
-
     -> React Native renders on native mobile components(like Android & IOS) rather than browser DOM.
 
     -> React Native relies on APIs provided by the react native to manage styling, layouts and
         interaction with components in mobile environment. It doesn't depend on web's DOM.
 
 ### Uses:
-
     -> React native can be used primarily for building Mobile Apps(like Android and IOS).
         It can be used for other plat forms like:
             1. Mobile Apps(IOS and Android).
