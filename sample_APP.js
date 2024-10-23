@@ -33,7 +33,7 @@
 /*  
     React createElemnt():
         -> React createElemnt() creates react element and it is plain JS object
-            which represents the element.
+            which represents the react element.
         -> JS object contains:
             {
                 type: "div",
