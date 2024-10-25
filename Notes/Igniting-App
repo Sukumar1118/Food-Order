@@ -1,0 +1,250 @@
+
+# - To make our app production ready what should we do?
+    # Minify our file (Remove console logs, bundle things up).
+    # Need a server to run things.
+
+📢 NOTE: Minify —> Optimization —> Clean console —> Bundle
+
+# - What is `Parcel/Webpack`? Why do we need it?
+    # `Parcel/Webpack` is module bundler used to bundle and package JS applications and their dependencies.
+
+# Bundlers:
+    # A bundler is a tool that bundles our app, packages our app so that it can be shipped 
+        to production.
+    Examples of Bundlers:
+                    1. Webpack (create-react-app uses this bundler).
+                    2. Parcel.
+                    3. Vite.
+    # Bundlers are packages.
+
+# To make our app production ready what should we do?
+    # Minify our file (Remove console logs, bundle things up)
+    # Need a server to run things
+
+# 📢 NOTE: Minify —> Optimization —>Clean console —> Bundle
+
+#  Bundlers:
+    # A bundler is a tool that bundles our app, packages our app so that it can be shipped to production.
+    Examples of Bundlers:
+                    1. Webpack
+                    2. Vite
+                    3. Parcel
+# 📢 NOTE: In create-react-app, the bundler used is webpack.
+
+# Package Manager:
+    # Bundlers are packages. If we want to use a package in our code, we have to use a package manager.
+    # We use a package manager known as:
+                                    1. npm or 
+                                    2. yarn
+
+# Configuring the Project:
+    npm init
+    -> It creates a package.json file.
+
+# Now to install parcel we will do:
+    npm install -D parcel
+    -> Now we will get a package-lock.json file.
+
+# package.json:
+    # Package.json file is a configuration for NPM. 
+
+    # Whatever packages our project needs, we install those packages using:
+            npm install <packageName>.
+
+    # Once package installation is complete, their versions and configuration related 
+        information is stored as dependencies inside package.json file.
+
+# package-lock.json:
+    # Package-lock.json locks the exact version of packages being used in the project.
+
+# What is difference between package.json and package.lock.json?
+    In package. json we have information about generic version of installed packages whereas
+        in package.lock.json we have information about the specific or exact version of
+        installed packages.
+
+# node_modules:
+    # Which gets installed is like a database for the npm.
+    # Every dependency in node_module will have its package.json.
+    Node modules are very heavy so we should always put this in git ignore.
+# 📢 NOTE: Never touch node_modules and package-lock.json
+
+# To ignite our app:
+    npx parcel index.html
+    -> npx means ‘execute using npm’
+    -> index.html is the entry point.
+
+# Hot Module Replacement (HMR):
+    # It means that parcel will keep a track of all the files which you are updating.
+    # There is File Watcher Algorithm (written in C++). It keeps track of all the files
+        which are changing realtime and it tells the server to reload. These are all done by PARCEL.
+
+# parcel-cache:
+    # Parcel caches code all the time.
+    # When we run the application, a build is created which takes some time in ms.
+    # If we make any code changes and save the application, another build will be triggered which 
+        might take even less time than the previous build. This reduction of time is due to parcel cache.
+    # Parcel immediately loads the code from the cache every time there is a subsequent build.
+    # On the very first build parcel creates a folder .parcelcache where it stores the caches in 
+        binary codeformat.
+    # Parcel gives faster build, faster developer experience because of caching.
+
+# dist:
+    # It keeps the files minified for us.
+    # When bundler builds the app, the build goes into a folder called dist.
+    # The /dist folder contains the minimized and optimised version the source code.
+    # Along with the minified code, the /dist folder also comprises of all the compiled modules that 
+        may or may not be used with other systems.
+
+    # When we run command:
+            npx parcel index.html
+        -> This will create a faster development version of our project and serves it on the server.
+    
+    # When I tell parcel to make a production build:
+            npx parcel build index.html
+        -> It creates a lot of things, minify your file. And the parcel will build all the production 
+            files to the dist folder.
+
+# Parcel features at a glance:
+    Hot Module Replacement (HMR)
+    File Watcher Algorithm - C++
+    Bundling
+    Minify Code
+    Cleaning our code
+    Dev and production build
+    Igniting Our App! ( Namaste-React ) 8
+    Super fast build algorithm
+    Image Optimization
+    Caching while development
+    Compression
+    Compatible with older browser versions
+    Https on dev
+    Image Optimization
+    Port No
+    Consistency Hashing Algorithm
+    Zero Config
+    Tree Shaking
+
+# Transitive Dependencies :
+    # We have our package manager which takes care of our transitive dependencies of our code.
+    # If we’ve to build a production ready app which uses all optimisations 
+        (like minify, bundling, compression, etc), we need to do all these.
+    # But we can’t do this alone, we need some dependencies on it. Those dependencies are also 
+        dependent on other dependencies.
+
+# Browserslist:
+    # Browserslist is a tool that specifies which browsers should be supported/compatible in your frontend app.
+    # It makes our code compatible for a lot of browsers.
+    In package.json file do:
+
+# what is Tree Shaking?
+   ● Tree shaking is a process of removing the unwanted code that we do not use while developing 
+        the application.
+   ● In computing, tree shaking is a dead code elimination technique that is applied when optimizing code.
+
+
+=====================
+
+###  What is `npm`?
+   ● npm is a package manager primarily for JavaSript.
+   ● npm actually has `no full form` but many places it is mentioned as `Node Package Manager`.
+   ● npm is world's largest software registry where developers(or many organizations) can share 
+        or borrow packages for projects.
+
+# Package Manager:
+  ● Package manager is a tool that helps to `manage the dependencies` in the Project.
+  ● It automates the process of `installing, upgrading & removing packages` and helps 
+    to develop & miantain applications easily.
+    EX: `npm`, `yarn` etc.
+
+# Module:
+   ● A module is a `single file (or group of files)` containing JavaScript code that can be 
+        exported and used in other files by importing it.
+   ● It `encapsulates related functionality`, for code organization and reusability.
+   ● You can define modules using `import and export` statements in JS(ES6 modules).
+
+# Package:
+   ● A package is a `collection of modules` that are bundled together and distributed as 
+        a single unit.
+   ● It includes a `package.json` file that contains `meta data`, `dependencies`, `versioning` etc.
+   ● It can be installed via package manager like `npm or yarn`.
+
+# Library:
+   ● A library is a `collection of reusable code` that provides specific functionalities. 
+   ● It can be a `single module` or a `collection of modules (or a package)`.
+
+# NOTE:
+   ● All above definitions are generic for module, package & library.
+   ● In `JS(or in npm ecosystem)`, these terminologies are used `interchangably`.
+   EX: `React` is considered as both `package & library`.
+        React is a library provide functionalities for building web apps.
+        React is distributed as a npm package which can be installed via npm and
+        it also has package.json file.
+
+# CLI(Command Line Interface):
+  ● CLI is a tool that allows users to interact with programs via a comman line or terminal.
+  ● CLI takes input as text & responds with text as output unlike GUIs(no need of GUIs).
+
+# CLI Tools:
+  ● CLI Tools are `command-line-based applications` instead of GUI to perform tasks in command
+    prompt or terminal.
+    EX: npm (npm install react),
+        Git (git clone <repository-url>),
+        Angular CLI (ng serve),
+        Webpack CLI (webpack --config webpack.config.js)
+
+   ● `Uses`: 
+        - They are `speed, flexible` and `ease of automation`.
+        - They are more eficient to manage & streamline development process and manage apps.
+        - Useful in managing `remote servers`, where GUIs may not be available or practical.
+
+   ● How to get `CLI Tools`?
+   ● `NPM`:   
+        - npm, node from `Node.js`(.msi installer file).
+        - npm is maintained by `Microsoft`(through its subsidiary `GitHub`) and 
+            is an `open-source` tool.
+   ● `Git`: 
+        - git, git bash from `Git`(.exe file).
+        - Git is maintained by the `Linux Foundation` and is an `open-source` tool.
+
+   ● Both `npm & git` through CLI using `winget`(included in WIN 10, 11) or `Chocolatey`.
+
+# Terminal:
+   ● Terminal in VS Code is an `integrated command-line interface` (CLI).
+   ● It allows you to execute commands directly within the editor, without switching 
+        to an external terminal application.
+        
+    EX: powershell (Windows (available on macOS and Linux too)),
+        command prompt, (Windows),
+        Git Bash (Cross-platform (part of Git for Windows)),
+        Javascript debug terminal (Cross-platform, integrated with VS Code’s debugging environment)
+
+
+● - What is Parcel/Webpack? Why do we need it?
+● - What is .parcel-cache
+● - What is npx ?
+● - What is difference between dependencies vs devDependencies
+● - What is Tree Shaking?
+● - What is Hot Module Replacement?
+● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+● - What is .gitignore? What should we add and not add into it?
+● - What is the difference between package.json and package-lock.json
+● - Why should I not modify package-lock.json?
+● - What is node_modules ? Is it a good idea to push that on git?
+● - What is the dist folder?
+● - What is browserlists
+Read about dif bundlers: vite, webpack, parcel
+● Read about: ^ - caret and ~ - tilda
+● Read about Script types in html (MDN Docs)
+
+# Project Assignment:
+- In your existing project
+● - intialize npm into your repo
+● - install react and react-dom
+● - remove CDN links of react
+● - install parcel
+● - ignite your app with parcel
+● - add scripts for “start” and “build” with parcel commands
+● - add .gitignore file
+● - add browserlists
+● - build a production version of your code using parcel build
+

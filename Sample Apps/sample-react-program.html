@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./sample-react-css.css" />
     <title>React</title>
   </head>
   <body>
@@ -28,16 +28,10 @@
       <h1>Elements after root</h1>
     </div>
 
-    <script
-      
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <script src="./App.js"></script>
+    <script type="module" src="./sample-App.js"></script>
 
     <!-- Scripts order:
           # Scripts order is important. If we place APP.js script tag before
@@ -45,6 +39,5 @@
             because react is not loaded by the time APP.js loaded if we place it 
             before react scripts. 
     -->
-    
   </body>
 </html>
