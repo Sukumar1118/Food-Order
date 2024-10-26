@@ -1,72 +1,6 @@
 
-# - To make our app production ready what should we do?
-    # Minify our file (Remove console logs, bundle things up).
-    # Need a server to run things.
 
-📢 NOTE: Minify —> Optimization —> Clean console —> Bundle
 
-# - What is `Parcel/Webpack`? Why do we need it?
-    # `Parcel/Webpack` is module bundler used to bundle and package JS applications and their dependencies.
-
-# Bundlers:
-    # A bundler is a tool that bundles our app, packages our app so that it can be shipped 
-        to production.
-    Examples of Bundlers:
-                    1. Webpack (create-react-app uses this bundler).
-                    2. Parcel.
-                    3. Vite.
-    # Bundlers are packages.
-
-# To make our app production ready what should we do?
-    # Minify our file (Remove console logs, bundle things up)
-    # Need a server to run things
-
-# 📢 NOTE: Minify —> Optimization —>Clean console —> Bundle
-
-#  Bundlers:
-    # A bundler is a tool that bundles our app, packages our app so that it can be shipped to production.
-    Examples of Bundlers:
-                    1. Webpack
-                    2. Vite
-                    3. Parcel
-# 📢 NOTE: In create-react-app, the bundler used is webpack.
-
-# Package Manager:
-    # Bundlers are packages. If we want to use a package in our code, we have to use a package manager.
-    # We use a package manager known as:
-                                    1. npm or 
-                                    2. yarn
-
-# Configuring the Project:
-    npm init
-    -> It creates a package.json file.
-
-# Now to install parcel we will do:
-    npm install -D parcel
-    -> Now we will get a package-lock.json file.
-
-# package.json:
-    # Package.json file is a configuration for NPM. 
-
-    # Whatever packages our project needs, we install those packages using:
-            npm install <packageName>.
-
-    # Once package installation is complete, their versions and configuration related 
-        information is stored as dependencies inside package.json file.
-
-# package-lock.json:
-    # Package-lock.json locks the exact version of packages being used in the project.
-
-# What is difference between package.json and package.lock.json?
-    In package. json we have information about generic version of installed packages whereas
-        in package.lock.json we have information about the specific or exact version of
-        installed packages.
-
-# node_modules:
-    # Which gets installed is like a database for the npm.
-    # Every dependency in node_module will have its package.json.
-    Node modules are very heavy so we should always put this in git ignore.
-# 📢 NOTE: Never touch node_modules and package-lock.json
 
 # To ignite our app:
     npx parcel index.html
@@ -214,22 +148,117 @@
         to an external terminal application.
         
     EX: powershell (Windows (available on macOS and Linux too)),
-        command prompt, (Windows),
+        command prompt (Windows),
         Git Bash (Cross-platform (part of Git for Windows)),
-        Javascript debug terminal (Cross-platform, integrated with VS Code’s debugging environment)
+        Javascript debug terminal (Cross-platform, integrated with VS Code’s debugging environment).
+
+# Git:
+   ● Git is `Version Control System` (VCS).
+   ● Command-line tool used for `tracking changes` in source code during development.
+   ● Provides features like `branching`, `merging`, `committing`, and `viewing history` etc.
+
+# GitHub:
+   ● `Hosting service` for Git repositories & a `Web-based platform` for `project management`
+        and community engagement.
+   ● UI for git and provides features such as `issue tracking`, `pull requests`, 
+        and `collaboration tools`.
+   ● Similar platforms like GitHub: `GitLab`, `Bitbucket` etc.
+
+# To make our app production ready what should we do?
+   ● `Minify our file` (Remove console logs, bundle things up).
+   ● `Need a server` to run things.
+
+📢 NOTE: Minify —> Optimization —> Clean console —> Bundle
+
+# What is Parcel/Webpack? Why do we need it?
+   ● Parcel/Webpack is `module bundler`.
+   ● Used to `bundle and package` JS applications and their dependencies.
+
+# Bundlers:
+   ● A bundler is a tool that `bundles & packages` our app into one or more output files.
+        This optimized files can be shipped to production.
+    Examples of Bundlers:
+                    1. Webpack (create-react-app uses this bundler).
+                    2. Parcel.
+                    3. Vite.
+   ● Bundlers are packages.
+
+# Configuring the Project:
+   ● `npm init`
+   ● It creates a package.json file.
+
+# package.json:
+   ● Package.json file is a `configuration` for `NPM and the project`.
+   ● Install packages our project needs using: 
+        `npm install <packageName>`.
+   ● Once package installation is complete, their versions and configuration related 
+        information is stored as dependencies inside package.json file
+
+# Now to install parcel we will do:
+   ● npm install -D parcel
+   ● Now we will get a `package-lock.json` file.
+
+# package-lock.json:
+   ● Package-lock.json locks the `exact version` of packages being used in the project.
+   ● `npm install` - npm `automatically` creates or updates `package-lock.json` to 
+        reflect any new dependencies or updates.
+   ● `Do not edit manually`, since it is automatically generated & `managed by npm`.     
+   ● package-lock.json ensures a `stable, consistent environment` by locking dependency versions,
+        making npm installations reliable and predictable.
+
+# Why should I not modify package-lock.json?
+   ● package-lock.json it is automatically generated and managed by npm to 
+        `ensure dependency consistency`. 
+   ● Making manual changes to package-lock.json can cause `issues in dependency management`, 
+        leading to potential `bugs or unexpected behaviors`.
+
+# What is difference between package.json and package.lock.json?
+   ● In `package. json` we have information about `generic version` of installed packages.
+   ● In `package.lock.json` we have information about the `specific or exact version` of installed packages.
+
+# What is node_modules?
+   ● All packages which are installed are like `database for the npm`.
+   ● node_modules folder is essential for `managing project dependencies locally`.
+   ● Every `dependency` in node_module will have its `package.json`.
+   ● Node modules are very heavy so we should always put this in `git ignore`.
+
+# 📢 NOTE: Never touch node_modules and package-lock.json
+
+# What is .gitignore? What should we add and not add into it?
+   ● .gitignore file specifies files and directories that `Git should ignore` when
+        `tracking changes` in a repository.
+
+   ● `Should add` to .gitignore:
+    Ex: 1. Dependency folders like `node_modules` - these can be `regenerated` by like 
+            npm using package.json.
+        2. `Build output` files like `dist, build` etc.
+        3. `Generated test` coverage reports like `coverage` etc.
+
+   ● `Should not add` to .gitignore:
+    Ex: 1. `Core application code` (like .js, .py, .html files) should always be 
+                tracked by Git.
+        2. `Configuration files` like package.json, webpack.config.js etc.
+        3. `Documentation files` and other important project files like  `README.md`,
+                `LICENSE`, `.gitignore` etc.
+
+# Is it a good idea to push node_modules that on git?
+   ● `No`, it’s generally not a good idea to push the node_modules folder to Git.
+   ● Adding node_modules to .gitignore and `excluding it from version` control is a 
+        best practice.
+   ● It keeps the repository `lightweight and efficient`, because node_modules contains 
+        not just dependencies mentioned in package.json and also it's `internal dependencies`.
+   ● Dependency information in package.json and package-lock.json ensures 
+        `version consistency`.
 
 
-● - What is Parcel/Webpack? Why do we need it?
+
 ● - What is .parcel-cache
 ● - What is npx ?
 ● - What is difference between dependencies vs devDependencies
 ● - What is Tree Shaking?
 ● - What is Hot Module Replacement?
 ● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
-● - What is .gitignore? What should we add and not add into it?
-● - What is the difference between package.json and package-lock.json
-● - Why should I not modify package-lock.json?
-● - What is node_modules ? Is it a good idea to push that on git?
+
 ● - What is the dist folder?
 ● - What is browserlists
 Read about dif bundlers: vite, webpack, parcel
