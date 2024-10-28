@@ -2,41 +2,13 @@
 
 
 
-# To ignite our app:
-    npx parcel index.html
-    -> npx means ‘execute using npm’
-    -> index.html is the entry point.
+
 
 # Hot Module Replacement (HMR):
     # It means that parcel will keep a track of all the files which you are updating.
     # There is File Watcher Algorithm (written in C++). It keeps track of all the files
         which are changing realtime and it tells the server to reload. These are all done by PARCEL.
 
-# parcel-cache:
-    # Parcel caches code all the time.
-    # When we run the application, a build is created which takes some time in ms.
-    # If we make any code changes and save the application, another build will be triggered which 
-        might take even less time than the previous build. This reduction of time is due to parcel cache.
-    # Parcel immediately loads the code from the cache every time there is a subsequent build.
-    # On the very first build parcel creates a folder .parcelcache where it stores the caches in 
-        binary codeformat.
-    # Parcel gives faster build, faster developer experience because of caching.
-
-# dist:
-    # It keeps the files minified for us.
-    # When bundler builds the app, the build goes into a folder called dist.
-    # The /dist folder contains the minimized and optimised version the source code.
-    # Along with the minified code, the /dist folder also comprises of all the compiled modules that 
-        may or may not be used with other systems.
-
-    # When we run command:
-            npx parcel index.html
-        -> This will create a faster development version of our project and serves it on the server.
-    
-    # When I tell parcel to make a production build:
-            npx parcel build index.html
-        -> It creates a lot of things, minify your file. And the parcel will build all the production 
-            files to the dist folder.
 
 # Parcel features at a glance:
     Hot Module Replacement (HMR)
@@ -126,17 +98,17 @@
         Angular CLI (ng serve),
         Webpack CLI (webpack --config webpack.config.js)
 
-   ● `Uses`: 
+   ● `Uses`:
         - They are `speed, flexible` and `ease of automation`.
         - They are more eficient to manage & streamline development process and manage apps.
         - Useful in managing `remote servers`, where GUIs may not be available or practical.
 
    ● How to get `CLI Tools`?
-   ● `NPM`:   
-        - npm, node from `Node.js`(.msi installer file).
+   ● `NPM`:
+        - npm, node, npx from `Node.js`(.msi installer file).
         - npm is maintained by `Microsoft`(through its subsidiary `GitHub`) and 
             is an `open-source` tool.
-   ● `Git`: 
+   ● `Git`:
         - git, git bash from `Git`(.exe file).
         - Git is maintained by the `Linux Foundation` and is an `open-source` tool.
 
@@ -250,20 +222,56 @@
    ● Dependency information in package.json and package-lock.json ensures 
         `version consistency`.
 
+# To ignite our app:
+   ● `npx parcel index.html`
+   ● npx means `execute using npm` & index.html is the entry point.
 
+# What is npx ?
+   ● npx is a `CLI tool` that comes bundled with npm and is used to 
+        `execute packages directly from the npm registry` without needing to install
+        them globally or locally first.
 
-● - What is .parcel-cache
-● - What is npx ?
+    Ex: npx create-react-app my-app
+   ● This command `temporarily installs create-react-app`, runs it, and then removes it. 
+   ● This helps saving you from `managing it as a global or project dependency`.
+   ● If `it's dependency` is mentioned in package.json it `will install` it and can be seen 
+        in node modules.
+
+# What is .parcel-cache?
+   ● Parcel `caches code` all the time.
+   ● When we run the application, a build is created which takes some time in ms.
+   ● If we make any code changes and save the application, another build will be triggered which 
+        might take even less time than the previous build. 
+        This `reduction of time` is due to parcel cache.
+   ● Parcel immediately loads the code from the `cache every time there is a subsequent build`.
+   ● On the very `first build` parcel creates a `folder .parcelcache` where it stores the caches in 
+        `binary code format`.
+   ● Parcel gives `faster build`, `faster developer experience` because of caching.
+
+# dist:
+   ● It keeps the `files minified` for us.
+   ● When `bundler builds the app`, the build goes into a folder called `dist`.
+   ● The /dist folder contains the `minimized and optimised` version the `source code`.
+   ● Along with the minified code, the /dist folder also comprises of all the compiled modules that 
+        may or may not be used with other systems.
+
+   ● When we run command:
+            `npx parcel index.html`
+        -> This will create a faster development version of our project and serves it on the server.
+    
+   ● When I tell parcel to make a `production build`:
+            `npx parcel build index.html`
+        -> It creates a lot of things, minify your file. And the parcel will build all the production 
+            files to the dist folder.
+
+● Read about: ^ - caret and ~ - tilda
+● Read about Script types in html (MDN Docs)
 ● - What is difference between dependencies vs devDependencies
+● - What is browserlists
 ● - What is Tree Shaking?
 ● - What is Hot Module Replacement?
 ● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
-
-● - What is the dist folder?
-● - What is browserlists
-Read about dif bundlers: vite, webpack, parcel
-● Read about: ^ - caret and ~ - tilda
-● Read about Script types in html (MDN Docs)
+● - Read about dif bundlers: vite, webpack, parcel.
 
 # Project Assignment:
 - In your existing project
