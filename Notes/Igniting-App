@@ -251,7 +251,7 @@
 # dist:
    ● It keeps the `files minified` for us.
    ● When `bundler builds the app`, the build goes into a folder called `dist`.
-   ● The /dist folder contains the `minimized and optimised` version the `source code`.
+   ● The /dist folder contains the `minimized and optimised` version of the `source code`.
    ● Along with the minified code, the /dist folder also comprises of all the compiled modules that 
         may or may not be used with other systems.
 
@@ -261,17 +261,42 @@
     
    ● When I tell parcel to make a `production build`:
             `npx parcel build index.html`
-        -> It creates a lot of things, minify your file. And the parcel will build all the production 
-            files to the dist folder.
+        -> It creates a lot of things, `minify your file`. 
+        -> And the parcel will build all the production files to the dist folder.
 
-● Read about: ^ - caret and ~ - tilda
-● Read about Script types in html (MDN Docs)
-● - What is difference between dependencies vs devDependencies
+# ^ (caret) and ~ (tilde)
+   ● In package.json, the ^ and ~ symbols specify `version ranges for npm packages`.
+   ● `^ (Caret)` - Allows updates to `minor & patch versions`, but restricts major version updates.
+   Ex: "express": "^4.17.1"
+        -> "^4.17.1" version will match any version >=4.17.1 <5.0.0
+   ● `~ (tilde)` = Allowa updates to `patch versions only`, but restricts minor & major updates.
+   Ex: "express": "~4.17.1"
+        -> "~4.17.1" version will match any version >=4.17.1 <4.18.0
+   ● To `update package-lock.json` with the latest version, you typically use:
+                -> `npm update` for specific packages,
+                -> `Modify package.json` version ranges directly,
+                -> `npm install package@latest`,
+                -> `Delete package.lock.json` & install again
+    With above methods, npm will then install and lock the latest versions within the specified range.
+
+# What is difference between dependencies vs devDependencies?
+●   Aspect	          |  dependencies	                         | devDependencies
+    Purpose	          |  Required to run the app in production	 | Needed only for development tasks
+    Example Packages  |  express, react, axios	                 | webpack, eslint, jest
+    Installation	  |  Installed in all environments by default| Skipped in production installs
+    Cmd to install    |	 npm install <package>	                 | npm install <package> --save-dev
+
+
+
+
 ● - What is browserlists
 ● - What is Tree Shaking?
 ● - What is Hot Module Replacement?
 ● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
 ● - Read about dif bundlers: vite, webpack, parcel.
+
+# Script types in html
+   ● 
 
 # Project Assignment:
 - In your existing project
