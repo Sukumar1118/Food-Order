@@ -5,6 +5,7 @@
 -> More about package.json file like scripts etc.
 -> More about git, git hub, git commands, brances like main, master, origin etc.
 -> More about npm commands, npx commands etc.
+-> Script types in html
 
 =============================
 -> Azure Devops, CI/CD etc.

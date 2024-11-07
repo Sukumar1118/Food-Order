@@ -326,10 +326,7 @@
    ● Parcel `automatically handles most of the configuration tasks` needed to bundle an application.
    ● No need of `complex config set-up like webpack.config.js` to start bundling of application.
    ● It automatically handles tasks like file handling, HMR, treee shaking, code splitiing, 
-        dependency management, built-in dev server etc.
-
-# Script types in html
-   ● 
+        dependency management, built-in dev server etc. 
 
 # Project Assignment:
 - In your existing project
