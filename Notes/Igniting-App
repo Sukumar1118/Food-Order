@@ -1,56 +1,6 @@
-
-
-
-
-
-
-# Hot Module Replacement (HMR):
-    # It means that parcel will keep a track of all the files which you are updating.
-    # There is File Watcher Algorithm (written in C++). It keeps track of all the files
-        which are changing realtime and it tells the server to reload. These are all done by PARCEL.
-
-
-# Parcel features at a glance:
-    Hot Module Replacement (HMR)
-    File Watcher Algorithm - C++
-    Bundling
-    Minify Code
-    Cleaning our code
-    Dev and production build
-    Igniting Our App! ( Namaste-React ) 8
-    Super fast build algorithm
-    Image Optimization
-    Caching while development
-    Compression
-    Compatible with older browser versions
-    Https on dev
-    Image Optimization
-    Port No
-    Consistency Hashing Algorithm
-    Zero Config
-    Tree Shaking
-
-# Transitive Dependencies :
-    # We have our package manager which takes care of our transitive dependencies of our code.
-    # If we’ve to build a production ready app which uses all optimisations 
-        (like minify, bundling, compression, etc), we need to do all these.
-    # But we can’t do this alone, we need some dependencies on it. Those dependencies are also 
-        dependent on other dependencies.
-
-# Browserslist:
-    # Browserslist is a tool that specifies which browsers should be supported/compatible in your frontend app.
-    # It makes our code compatible for a lot of browsers.
-    In package.json file do:
-
-# what is Tree Shaking?
-   ● Tree shaking is a process of removing the unwanted code that we do not use while developing 
-        the application.
-   ● In computing, tree shaking is a dead code elimination technique that is applied when optimizing code.
-
-
 =====================
 
-###  What is `npm`?
+# What is `npm`?
    ● npm is a package manager primarily for JavaSript.
    ● npm actually has `no full form` but many places it is mentioned as `Node Package Manager`.
    ● npm is world's largest software registry where developers(or many organizations) can share 
@@ -289,11 +239,94 @@
 
 
 
-● - What is browserlists
-● - What is Tree Shaking?
-● - What is Hot Module Replacement?
-● - List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
-● - Read about dif bundlers: vite, webpack, parcel.
+# What is browserlist?
+   ● Browserslist is a tool that specifies which browsers should be supported/compatible 
+        in your frontend app.
+   ● It makes our code compatible for a lot of browsers.
+    In package.json file do:
+                {
+                    "browserslist": [
+                        "last 2 versions",
+                        "not dead"
+                    ]
+                }
+        `last 2 versions`: The last two versions of each major browser.
+        `not dead`: Excludes browsers that are officially no longer maintained.
+# How it works?
+   ● Browserslist works by taking a `list of queries`, interpreting them and generating a 
+        list of specific browser versions that match those criteria.
+   ● Browserslist uses `caniuse-lite database`, which contains browser support and usage 
+        statistics for various features & `generates browsers list`.
+   ● This browser list is passed to tools like Babel, Autoprefixer, ESLint, and others. 
+        These tools use the list to determine:
+            `Babel`: Which JavaScript features to transpile or polyfill.
+            `Autoprefixer`: Which CSS vendor prefixes to add.
+            `Webpack`: Which code can be optimized for specific browsers.
+   ● It optimizes code by only transforming what's necessary, based on current browser usage and 
+        feature ensuring your project is both performant and compatible with your specified audience.
+   ● If you `don't specify a Browserslist` configuration in your project, most tools will fall back 
+        on a `default browser support list`.
+
+# Transitive Dependencies:
+   ● We have our package manager(nodeJs) which takes care of our transitive dependencies of our code.
+   ● If we’ve to build a production ready app which uses all optimisations 
+        (like minify, bundling, compression, etc), we need to do all these.
+   ● But we can’t do this alone, we need some dependencies on it. Those dependencies are also dependent
+        on other dependencies and `these nested dependencies` are called transitive dependencies.
+
+# Parcel features at a glance:
+    Hot Module Replacement (HMR)
+    Tree Shaking
+    code splitting
+    Zero Config
+    File Watcher Algorithm - C++
+    Bundling
+    Minify Code
+    Cleaning our code
+    Dev and production build
+    Super fast build algorithm
+    Image Optimization
+    Caching while development
+    Compression
+    Compatible with older browser versions
+    Https on dev
+    Image Optimization
+    Port No
+    Consistency Hashing Algorithm
+    
+
+# Code Splitting:
+   ● It is an optimization technique that `divides code into smaller bundles`, allowing only 
+        `essential code to load initially` and deferring other parts until needed.
+   ● `Improves load times, enables on-demand loading (lazy-loading)`, and 
+        enhances performance in large applications by `reducing the initial bundle size`.
+   ● Common methods include `route-based splitting` (loading by pages or routes) and 
+        `component-based splitting` (loading individual components as needed).
+   ● `Webpack & parcel supports` code splitting.
+
+# Tree Shaking:
+   ● Tree shaking is a process of `removing the unwanted code` that we do not use while developing 
+        the application.
+   ● In computing, tree shaking is a `dead code elimination technique` that is applied when optimizing code.
+   ● Tree shaking relies on ES6 module syntax (import and export) and removes methods or functions which are
+        `not imported or used anywhere`, `unused variables` etc.
+   ● `Functions should be pure` to remove while treeshaking.
+   ● `Webpack & parcel supprots` tree shaking.
+
+# Hot Module Replacement (HMR):
+   ● It means that parcel will keep a `track of all the files which you are updating`.
+   ● There is `File Watcher Algorithm (written in C++)`. It keeps track of all the files
+        which are changing realtime and it tells the server to reload.
+   ● It allows `only updated modules to load instantly` in the browser `without a full page refresh`,
+        preserving the application state.
+   ● It works well with JavaScript, CSS, and some HTML changes, instantly reflecting updates in the browser.
+   ● `Webpack, parcel` etc. supports HMR. 
+
+# Zero config:
+   ● Parcel `automatically handles most of the configuration tasks` needed to bundle an application.
+   ● No need of `complex config set-up like webpack.config.js` to start bundling of application.
+   ● It automatically handles tasks like file handling, HMR, treee shaking, code splitiing, 
+        dependency management, built-in dev server etc.
 
 # Script types in html
    ● 
