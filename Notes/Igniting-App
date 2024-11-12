@@ -62,7 +62,8 @@
         - git, git bash from `Git`(.exe file).
         - Git is maintained by the `Linux Foundation` and is an `open-source` tool.
 
-   ● Both `npm & git` through CLI using `winget`(included in WIN 10, 11) or `Chocolatey`.
+   ● Both `npm & git` can be installed through CLI using `winget`(included in WIN 10, 11)
+          or `Chocolatey`.
 
 # Terminal:
    ● Terminal in VS Code is an `integrated command-line interface` (CLI).
@@ -180,12 +181,14 @@
    ● npx is a `CLI tool` that comes bundled with npm and is used to 
         `execute packages directly from the npm registry` without needing to install
         them globally or locally first.
+   ● npm is a `package runner tool`. 
 
     Ex: npx create-react-app my-app
    ● This command `temporarily installs create-react-app`, runs it, and then removes it. 
    ● This helps saving you from `managing it as a global or project dependency`.
    ● If `it's dependency` is mentioned in package.json it `will install` it and can be seen 
         in node modules.
+   ● `create-react-app` is a Node package that generates a `boilerplate React application`.
 
 # What is .parcel-cache?
    ● Parcel `caches code` all the time.

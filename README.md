@@ -6,6 +6,9 @@
 -> More about git, git hub, git commands, brances like main, master, origin etc.
 -> More about npm commands, npx commands etc.
 -> Script types in html
+-> More about scripts in package.json like combinig multiple commands etc, different scripts etc.
+-> More abou parcel features: https://parceljs.org/features/development/
+
 
 =============================
 -> Azure Devops, CI/CD etc.
