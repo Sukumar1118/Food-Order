@@ -5,9 +5,12 @@
 -> More about package.json file like scripts etc.
 -> More about git, git hub, git commands, brances like main, master, origin etc.
 -> More about npm commands, npx commands etc.
--> Script types in html
+-> Script types in html - Role of type attribute in script tag? What options can I use there?
+    Attribute Types:
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type
 -> More about scripts in package.json like combinig multiple commands etc, different scripts etc.
--> More abou parcel features: https://parceljs.org/features/development/
+-> More about parcel features: https://parceljs.org/features/development/
+-> More about Babel on babeljs.io, https://babeljs.io/docs/
 
 
 =============================
