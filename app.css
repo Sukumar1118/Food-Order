@@ -19,7 +19,6 @@
 }
 
 .restaurantCard {
-  
   width: 250px;
   padding: 0.5%;
   margin: 5px;
@@ -38,4 +37,8 @@
 .resContainer {
   display: flex;
   flex-wrap: wrap;
+}
+
+.topRatedResBtn {
+  margin: 10px;
 }
