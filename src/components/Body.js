@@ -4,10 +4,6 @@ const Body = () => {
     return (
       <div>
         <div>
-          Search:
-          <input />
-        </div>
-        <div>
           <RestaurantContainer />
         </div>
       </div>
