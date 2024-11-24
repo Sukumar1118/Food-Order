@@ -8,7 +8,11 @@
   border: 1px solid grey;
 }
 
-.navBar {
+.login-btn {
+  width: 60px;
+}
+
+.nav-bar {
   display: flex;
   list-style-type: none;
   justify-content: space-between;

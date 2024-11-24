@@ -8,12 +8,12 @@ const Header = () => {
         <img src={LOGO_URL} alt="logo" width="100px" />
       </div>
       <div>
-        <ul className="navBar">
+        <ul className="nav-bar">
           <li>Home</li>
           <li>AboutUs</li>
           <li>ContactUs</li>
           <li>Cart</li>
-          <button
+          <button className="login-btn"
             onClick={() => {
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
             }}

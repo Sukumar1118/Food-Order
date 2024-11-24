@@ -1,5 +1,5 @@
 import resObj from "../utils/mockData";
-import { CDN_LINK } from "../utils/constants.js";
+import { CDN_LINK, SWIGGY_API, CORS_PROXY_URL, CORS_API_KEY } from "../utils/constants.js";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./Shimmer.js";
 
@@ -15,12 +15,15 @@ export const RestaurantContainer = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(CORS_PROXY_URL + SWIGGY_API, {
+      headers: {
+        "x-cors-api-key": CORS_API_KEY,
+      },
+    });
     const jsonData = await data.json();
-    const resData = jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-    ?.restaurants;
+    const resData =
+      jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
     setResCards(resData);
     setDisplayResCards(resData);
     console.log("jsonData ", restaurantGridElements);
