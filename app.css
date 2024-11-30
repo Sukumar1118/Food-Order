@@ -8,8 +8,15 @@
   border: 1px solid grey;
 }
 
+.image-container {
+  background-image: url("./assets/logos/skypeLogo.jpg");
+  width: 100px;
+  height: 100px;
+}
+
 .login-btn {
   width: 60px;
+  margin-right: 10px;
 }
 
 .nav-bar {
@@ -17,9 +24,10 @@
   list-style-type: none;
   justify-content: space-between;
   font-size: large;
-  li {
-    padding: 10px;
-  }
+}
+
+.nav-menu {
+  margin-right: 10px;
 }
 
 .restaurantCard {

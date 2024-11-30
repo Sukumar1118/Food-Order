@@ -1,7 +1,13 @@
 import resObj from "../utils/mockData";
-import { CDN_LINK, SWIGGY_API, CORS_PROXY_URL, CORS_API_KEY } from "../utils/constants.js";
+import {
+  CDN_LINK,
+  SWIGGY_API,
+  CORS_PROXY_URL,
+  CORS_API_KEY,
+} from "../utils/constants.js";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./Shimmer.js";
+import { Link } from "react-router-dom";
 
 export const RestaurantContainer = () => {
   let restaurantGridElements =
@@ -26,7 +32,6 @@ export const RestaurantContainer = () => {
         ?.restaurants;
     setResCards(resData);
     setDisplayResCards(resData);
-    console.log("jsonData ", restaurantGridElements);
   };
 
   //* Conditional Rendering
@@ -65,7 +70,9 @@ export const RestaurantContainer = () => {
       </div>
       <div className="resContainer">
         {displayResCards.map((resEle) => (
-          <RestaurantCard key={resEle.info.id} resName={resEle} />
+          <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
+            <RestaurantCard resName={resEle} />
+          </Link>
         ))}
       </div>
     </div>
