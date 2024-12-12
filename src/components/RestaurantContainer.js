@@ -18,6 +18,13 @@ export const RestaurantContainer = () => {
 
   useEffect(() => {
     fetchData();
+    
+    // const timer = setInterval(() => {
+    //   console.log("setInterval - RestaurantContainer");
+    // }, 1000);
+    // return () => {
+    //   clearInterval(timer);
+    // };
   }, []);
 
   const fetchData = async () => {
@@ -25,8 +32,16 @@ export const RestaurantContainer = () => {
       headers: {
         "x-cors-api-key": CORS_API_KEY,
       },
+    }).catch((error) => {
+      console.log("error:", error);
     });
-    const jsonData = await data.json();
+    if (!data) {
+      setResCards(restaurantGridElements);
+      setDisplayResCards(restaurantGridElements);
+      return;
+    }
+
+    const jsonData = data.json();
     const resData =
       jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
