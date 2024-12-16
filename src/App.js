@@ -8,8 +8,8 @@ import Error from "./components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import AboutClass from "./components/About";
-// import Grocery from "./components/Grocery";
 import { lazy, Suspense } from "react";
+// import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 

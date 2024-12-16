@@ -46,21 +46,24 @@ export const RestaurantContainer = () => {
     setDisplayResCards(resData);
   };
 
-  if (!onlineStatus) return <h1>Looks like you're offline!!!</h1>
+  if (!onlineStatus) return <h1>Looks like you're offline!!!</h1>;
 
   //* Conditional Rendering
   return resCards?.length === 0 ? (
     <ShimmerUI />
   ) : (
     <div>
-      <div>
+      <div className="my-3">
         <input
+          className="mx-2 border-solid border-2 border-gray-400 rounded-2xl"
           value={searchText}
+          placeholder=" Search..."
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
         />
         <button
+          className="px-4 mx-2 border-solid border-2 border-gray-400 rounded-2xl"
           onClick={() => {
             let filteredItems = resCards.filter((res) =>
               res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -71,7 +74,7 @@ export const RestaurantContainer = () => {
           Search
         </button>
         <button
-          className="topRatedResBtn"
+          className="px-4 mx-2 border-solid border-2 border-gray-400 rounded-2xl"
           onClick={() => {
             let filteredTopRatedRes = resCards.filter(
               (res) => res.info.avgRating > 4.3
@@ -82,7 +85,7 @@ export const RestaurantContainer = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="resContainer">
+      <div className="flex flex-wrap">
         {displayResCards?.map((resEle) => (
           <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
             <RestaurantCard resName={resEle} />
@@ -96,15 +99,28 @@ export const RestaurantContainer = () => {
 export const RestaurantCard = (props) => {
   const { info } = props.resName;
   return (
-    <div className="restaurantCard" style={{ backgroundColor: "#f0f0f0" }}>
-      <img className="resLogo" alt="" src={CDN_LINK + info.cloudinaryImageId} />
-      <h3>{info.name}</h3>
-      <h4>
-        <span>{info.avgRating} stars</span>
-        <span>{" " + info.sla.slaString}</span>
-      </h4>
-      <h4>{info.cuisines?.join(", ")}</h4>
-      <h4>{info.costForTwo}</h4>
+    <div className="w-64 m-4">
+      <div className="hover:m-2">
+        <img
+          className="h-40 w-64 rounded-xl"
+          alt=""
+          src={CDN_LINK + info.cloudinaryImageId}
+        />
+        <div className="pl-2">
+          <h1 className="font-bold text-lg mt-2">{info.name}</h1>
+          <h4 className="font-medium">
+            <span>
+              {" "}
+              <span className="text-green-500">⭐</span> {info.avgRating}
+            </span>
+            <span>{" " + info.sla.slaString}</span>
+          </h4>
+          <h4 className="text-gray-500 font-medium">
+            {info.cuisines?.join(", ")}
+          </h4>
+          <h4 className="text-gray-500 font-medium">{info.costForTwo}</h4>
+        </div>
+      </div>
     </div>
   );
 };
