@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import ShimmerUI from "./Shimmer.js";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 export const RestaurantContainer = () => {
   let restaurantGridElements =
@@ -15,10 +16,11 @@ export const RestaurantContainer = () => {
   const [resCards, setResCards] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [displayResCards, setDisplayResCards] = useState([]);
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
-    
+
     // const timer = setInterval(() => {
     //   console.log("setInterval - RestaurantContainer");
     // }, 1000);
@@ -35,13 +37,8 @@ export const RestaurantContainer = () => {
     }).catch((error) => {
       console.log("error:", error);
     });
-    if (!data) {
-      setResCards(restaurantGridElements);
-      setDisplayResCards(restaurantGridElements);
-      return;
-    }
 
-    const jsonData = data.json();
+    const jsonData = await data.json();
     const resData =
       jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
@@ -49,8 +46,10 @@ export const RestaurantContainer = () => {
     setDisplayResCards(resData);
   };
 
+  if (!onlineStatus) return <h1>Looks like you're offline!!!</h1>
+
   //* Conditional Rendering
-  return resCards.length === 0 ? (
+  return resCards?.length === 0 ? (
     <ShimmerUI />
   ) : (
     <div>
@@ -84,7 +83,7 @@ export const RestaurantContainer = () => {
         </button>
       </div>
       <div className="resContainer">
-        {displayResCards.map((resEle) => (
+        {displayResCards?.map((resEle) => (
           <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
             <RestaurantCard resName={resEle} />
           </Link>
