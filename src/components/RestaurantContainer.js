@@ -1,14 +1,18 @@
 import resObj from "../utils/mockData";
 import {
-  CDN_LINK,
   SWIGGY_API,
   CORS_PROXY_URL,
   CORS_API_KEY,
 } from "../utils/constants.js";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ShimmerUI from "./Shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import {
+  RestaurantCard,
+  withLabelPromotedRestaurantCard,
+} from "./RestaurantCard.js";
+import UserContext from "../utils/UserContext.js";
 
 export const RestaurantContainer = () => {
   let restaurantGridElements =
@@ -17,6 +21,9 @@ export const RestaurantContainer = () => {
   const [searchText, setSearchText] = useState("");
   const [displayResCards, setDisplayResCards] = useState([]);
   const onlineStatus = useOnlineStatus();
+  const RestaurantCardPromoted =
+    withLabelPromotedRestaurantCard(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -40,7 +47,7 @@ export const RestaurantContainer = () => {
 
     const jsonData = await data.json();
     const resData =
-      jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      jsonData.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setResCards(resData);
     setDisplayResCards(resData);
@@ -84,42 +91,22 @@ export const RestaurantContainer = () => {
         >
           Top Rated Restaurants
         </button>
+        <input
+          className="mx-2 border-solid border-2 border-gray-400 rounded-2xl"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
       <div className="flex flex-wrap">
-        {displayResCards?.map((resEle) => (
+        {displayResCards?.map((resEle, index) => (
           <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
-            <RestaurantCard resName={resEle} />
+            {index % 3 === 0 ? (
+              <RestaurantCardPromoted resName={resEle} />
+            ) : (
+              <RestaurantCard resName={resEle} />
+            )}
           </Link>
         ))}
-      </div>
-    </div>
-  );
-};
-
-export const RestaurantCard = (props) => {
-  const { info } = props.resName;
-  return (
-    <div className="w-64 m-4">
-      <div className="hover:m-2">
-        <img
-          className="h-40 w-64 rounded-xl"
-          alt=""
-          src={CDN_LINK + info.cloudinaryImageId}
-        />
-        <div className="pl-2">
-          <h1 className="font-bold text-lg mt-2">{info.name}</h1>
-          <h4 className="font-medium">
-            <span>
-              {" "}
-              <span className="text-green-500">⭐</span> {info.avgRating}
-            </span>
-            <span>{" " + info.sla.slaString}</span>
-          </h4>
-          <h4 className="text-gray-500 font-medium">
-            {info.cuisines?.join(", ")}
-          </h4>
-          <h4 className="text-gray-500 font-medium">{info.costForTwo}</h4>
-        </div>
       </div>
     </div>
   );

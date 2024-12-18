@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { User } from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 import {
   CORS_API_KEY,
   CORS_PROXY_URL,
@@ -60,6 +61,12 @@ class AboutClass extends Component {
       <div>
         <h1>About</h1>
         <h4>This is about us page</h4>
+        <h2>
+          LoggedInUser:
+          <UserContext.Consumer>
+            {({ loggedInUser }) => <div>{loggedInUser}</div>}
+          </UserContext.Consumer>
+        </h2>
         <h1>Name: {this.state.userInfo.name}</h1>
         <User />
         <UserClass name="First: Sukumar" location="Bangalore" />
