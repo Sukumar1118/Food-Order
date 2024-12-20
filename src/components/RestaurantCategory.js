@@ -1,7 +1,7 @@
 import RestaurantMenuItemList from "./RestaurantMenuItemList";
 
 const RestaurantCategory = (props) => {
-  const { category, setShowIndexFromChild } = props;
+  const { category, setShowIndexFromChild, showItems } = props;
   const title = category?.card?.card?.title;
   const itemCards = category?.card?.card?.itemCards;
 
@@ -10,7 +10,7 @@ const RestaurantCategory = (props) => {
       <div
         className="w-full m-2 cursor-pointer"
         onClick={() => {
-            setShowIndexFromChild();
+          setShowIndexFromChild();
         }}
       >
         <div className="flex justify-between bg-gray-100 p-2 shadow-md rounded-md">
@@ -20,7 +20,7 @@ const RestaurantCategory = (props) => {
           <div className="font-bold text-xl">+</div>
         </div>
         <div>
-        <RestaurantMenuItemList menuItemList={itemCards} />
+          {showItems && <RestaurantMenuItemList menuItemList={itemCards} />}
         </div>
       </div>
     </div>
