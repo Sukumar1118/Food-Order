@@ -47,7 +47,7 @@ export const RestaurantContainer = () => {
 
     const jsonData = await data.json();
     const resData =
-      jsonData.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+      jsonData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
     setResCards(resData);
     setDisplayResCards(resData);
@@ -92,12 +92,13 @@ export const RestaurantContainer = () => {
           Top Rated Restaurants
         </button>
         <input
-          className="mx-2 border-solid border-2 border-gray-400 rounded-2xl"
+          placeholder="Logged in user..."
+          className="mx-2 border-solid border-2 border-gray-400 pl-2"
           value={loggedInUser}
           onChange={(e) => setUserName(e.target.value)}
         />
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap m-auto justify-center">
         {displayResCards?.map((resEle, index) => (
           <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
             {index % 3 === 0 ? (

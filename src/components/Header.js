@@ -4,10 +4,13 @@ import { useContext, useState } from "react";
 import userImage from "../../assets/logos/userIcon.jpg";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store?.cartSlice?.cartItems);
 
   return (
     <div className="shadow-lg">
@@ -50,7 +53,7 @@ const Header = () => {
               className="p-2 mx-2 text-gray-700 font-medium hover:text-orange-500"
               to={"/cart"}
             >
-              Cart
+              Cart({cartItems?.length} items)
             </Link>
             <Link
               className="p-2 mx-2 text-gray-700 font-medium hover:text-orange-500"

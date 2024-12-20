@@ -9,3 +9,5 @@ export const SWIGGY_API =
 export const RESTAURANT_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
 export const GIT_HUB_USER_INFO_API = "https://api.github.com/users/Sukumar1118";
+export const CATEGORY_FILETR_STRING =
+  "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";

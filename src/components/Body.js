@@ -1,13 +1,11 @@
 import { RestaurantContainer } from "./RestaurantContainer";
 
 const Body = () => {
-    return (
-      <div>
-        <div>
-          <RestaurantContainer />
-        </div>
-      </div>
-    );
-  };
+  return (
+    <div>
+      <RestaurantContainer />
+    </div>
+  );
+};
 
 export default Body;

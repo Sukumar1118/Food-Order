@@ -1,7 +1,7 @@
-import RestaurantMenuItem from "./RestaurantMenuItem";
+import RestaurantMenuItemList from "./RestaurantMenuItemList";
 
 const RestaurantCategory = (props) => {
-  const { category, showItems, setShowIndexFromChild } = props;
+  const { category, setShowIndexFromChild } = props;
   const title = category?.card?.card?.title;
   const itemCards = category?.card?.card?.itemCards;
 
@@ -20,13 +20,7 @@ const RestaurantCategory = (props) => {
           <div className="font-bold text-xl">+</div>
         </div>
         <div>
-          {itemCards.map((item) => {
-            return showItems ? (
-              <RestaurantMenuItem menuItem={item} />
-            ) : (
-              <div></div>
-            );
-          })}
+        <RestaurantMenuItemList menuItemList={itemCards} />
         </div>
       </div>
     </div>

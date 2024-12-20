@@ -1,7 +1,7 @@
+import React from "react";
 import { CDN_LINK } from "../utils/constants";
 
-const RestaurantMenuItem = (props) => {
-  const { menuItem } = props;
+const MenuItem = ({menuItem}) => {
   const { name, description, imageId } = menuItem?.card?.info;
   return (
     <div className="flex border-b-2 border-solid border-gray-400 my-2 pb-2">
@@ -16,4 +16,4 @@ const RestaurantMenuItem = (props) => {
   );
 };
 
-export default RestaurantMenuItem;
+export default MenuItem;
