@@ -3,7 +3,7 @@ import { CDN_LINK } from "../utils/constants.js";
 export const RestaurantCard = (props) => {
   const { info } = props.resName;
   return (
-    <div className="w-64 m-4 shadow-md">
+    <div data-testid="resCard" className="w-64 m-4 shadow-md">
       <div className="hover:m-2">
         <img
           className="h-40 w-64 rounded-xl"
@@ -32,7 +32,9 @@ export const withLabelPromotedRestaurantCard = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="p-1 absolute bg-black text-white rounded-md">Promoted</label>
+        <label className="p-1 absolute bg-black text-white rounded-md">
+          Promoted
+        </label>
         <RestaurantCard {...props} />
       </div>
     );

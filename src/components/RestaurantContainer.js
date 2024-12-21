@@ -63,6 +63,7 @@ export const RestaurantContainer = () => {
       <div className="my-3">
         <input
           className="mx-2 border-solid border-2 border-gray-400 rounded-2xl"
+          data-testid="search-bar"
           value={searchText}
           placeholder=" Search..."
           onChange={(e) => {
@@ -100,6 +101,7 @@ export const RestaurantContainer = () => {
       </div>
       <div className="flex flex-wrap m-auto justify-center">
         {displayResCards?.map((resEle, index) => (
+          console.log("resEle:", resEle),
           <Link key={resEle.info.id} to={"/resMenu/" + resEle.info.id}>
             {index % 3 === 0 ? (
               <RestaurantCardPromoted resName={resEle} />
