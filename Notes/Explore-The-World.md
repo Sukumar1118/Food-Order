@@ -27,10 +27,10 @@ Here are two quick stories:
     time-consuming since it affects the entire application.
 # Microservices Architecture
 ● The idea is to split your application into a set of smaller, interconnected services instead of 
-    building a single monolithic application. 
+    building a single monolithic application.
 ● Each service handles a specific job, like handling user accounts or managing payments. 
-● Inside each service, there's a mini-world of its own, with its own set of 
-    rules (business logic) and tools (adapters). 
+● Inside each service, there's a mini-world of its own, with its own set of rules (business logic) and 
+    tools (adapters).
 ● Some services talk to each other in different ways, like using REST or messaging.
     Others might even have their own website!
 ● Simpler Development: Microservices break down complex applications into smaller, 
@@ -97,7 +97,7 @@ In React, we're opting for the second approach. This approach enhances user expe
 ● Callback function is getting called after the whole component get rendered.
 ● In our app we are using ’ useEffect() ' inside Body component. So it will get called once Body 
     component complete its render cycle.
-● If we have to do something after the rendercycle complets we can pass it inside the ‘ useEffect() '.
+● If we have to do something after the render cycle complets, we can pass it inside the ‘ useEffect() '.
     this is the actual use case of useEffect. It is really helpful to render data which we will 
     get after the ‘ fetch() ' operation and we are going to follow second approach which we have 
     discussed already.

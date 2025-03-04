@@ -46,7 +46,7 @@ Understand the Syntax properly.
 
 📢 NOTE:
 ● We `don't` have to put an `extension in the file in the import statement`.
-    If want to put then completely Fine.
+    If you want to put then completely Fine.
 
 📢 NOTE:
 ● we `never put` any `hard-coded data` like the source-URL of logo and images inside the 
@@ -101,7 +101,7 @@ Step-2 (import)————————>
 ● If we pass the listOfRestaurant(with any data) `data inside the useState()` as the 
     default data, it will `render the data` on the screen using that initial data.
 
-# How could we modify the datam?
+# How could we modify the data?
 ● To modify we pass the second argument setListOfRestaurant we can name as we wish. 
     setListOfRestaurant used to update the list.
     Syntax of useState():

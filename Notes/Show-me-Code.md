@@ -1,6 +1,6 @@
 
 # Planning for the UI
-● Before we start coding, `plan things out`.
+● Before we start coding, `plan the things out`.
 ● Planning will make things easier to understand. We should know exactly what to build:
 
 # Name the App
@@ -118,5 +118,5 @@ const Body = () => {
 ●  But if we give each of them a `unique ID` then `react knows where to put that component` according
     to the ID. It is a `good optimization and performance thing`.
 
-Note* `Never use index` as `keys in map`. It is not recommended. 
+Note* `Never use index` as `keys in map`. It is not recommended.
         If there is `no unique Id` available, then add index & `consider it as last option`.

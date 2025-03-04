@@ -32,12 +32,12 @@
    ● All above definitions are generic for module, package & library.
    ● In `JS(or in npm ecosystem)`, these terminologies are used `interchangably`.
    EX: `React` is considered as both `package & library`.
-        React is a library provide functionalities for building web apps.
+        React is a library which provide functionalities for building web apps.
         React is distributed as a npm package which can be installed via npm and
         it also has package.json file.
 
 # CLI(Command Line Interface):
-  ● CLI is a tool that allows users to interact with programs via a comman line or terminal.
+  ● CLI is a tool that allows users to interact with programs via a command line or terminal.
   ● CLI takes input as text & responds with text as output unlike GUIs(no need of GUIs).
 
 # CLI Tools:
@@ -181,7 +181,7 @@
    ● npx is a `CLI tool` that comes bundled with npm and is used to 
         `execute packages directly from the npm registry` without needing to install
         them globally or locally first.
-   ● npm is a `package runner tool`. 
+   ● npx is a `package runner tool`. 
 
     Ex: npx create-react-app my-app
    ● This command `temporarily installs create-react-app`, runs it, and then removes it. 
@@ -233,13 +233,11 @@
     With above methods, npm will then install and lock the latest versions within the specified range.
 
 # What is difference between dependencies vs devDependencies?
-●   Aspect	          |  dependencies	                         | devDependencies
-    Purpose	          |  Required to run the app in production	 | Needed only for development tasks
-    Example Packages  |  express, react, axios	                 | webpack, eslint, jest
+●   Aspect	       |  dependencies	                         | devDependencies
+    Purpose	       |  Required to run the app in production	| Needed only for development tasks
+    Example Packages  |  express, react, axios	               | webpack, eslint, jest
     Installation	  |  Installed in all environments by default| Skipped in production installs
-    Cmd to install    |	 npm install <package>	                 | npm install <package> --save-dev
-
-
+    Cmd to install    |	 npm install <package>	               | npm install <package> --save-dev
 
 
 # What is browserlist?

@@ -2,25 +2,23 @@
 ====================
 
 # What is React?
-    # React is JS library can be used on any small portion of the app like header, footer, 
+    # React is open source JS library & can be used on any small portion of the app like header, footer, 
         sidebar etc. like any other JS library in our existing application.
+
+# React uses:
+    # It can be used to develop:
+                            1. Web applications.
+                            2. Mobile applications.
+                            3. Large-scale enterprise applications etc.
 
 # Why React is known as ‘React’?
     # The name ‘React’ was chosen because the library was designed to allow developers to react
         to changes in state and data within an application, and to update the user interface in 
         a declarative and efficient manner.
 
-# React uses:
-    # It can be used to develop:
-                            1. Web applications
-                            2. Mobile applications.
-                            3. Large-scale enterprise applications etc.
-
 # What is Library?
-    # Library is a collections of prewritten code snippets that can be used and reused to
-        perform certain tasks. A particular JavaScript library code can be plugged into
-        application code which leads to faster development and fewer vulnerabilities to
-        have errors.
+    # Library is a collections of prewritten code snippets that can be used to perform certain tasks. 
+        A particular JavaScript library code can be plugged into application code which leads to faster development and fewer vulnerabilities to have errors.
     Examples: React, jQuery
 
 # What is Framework?
@@ -56,7 +54,7 @@
 # React(react.development.js):
     # React is a core react library responsible for handling component structure, state and lifecycle.
 # ReactDOM(react-dom.development.js):
-    # ReactDOM library is responsible for rendering React compnents to DOM.
+    # ReactDOM library is responsible for rendering React components to DOM.
 
 # Are both libraries required?
     # React can be used in multiple environments like:
@@ -64,7 +62,7 @@
             handling components and react DOM deals with web specific operation like DOM manipulation.
 
         -> For web project both are required and for mobile Apps React DOM is not required. So, it's better
-            split into two libraries and use it according to the requirements.
+            split it into two libraries and use it according to the requirements.
 
 
 # Why "crossorigin" attribute is included in CDN links?
@@ -86,7 +84,7 @@
 
     // This is a vague, unhelpful error. You have no idea why the script failed to load,
     // whether it’s due to a CORS issue, network issue, or other reasons.
-# Without crossorigin Attribute
+# With crossorigin Attribute
     # Browsers will provide more detailed error information with "crossorigin" attribute.
 
     EX: Access to Script at 'https://cdn.example.com/react.min.js' from origin 'https://yourdomain.com' 
@@ -150,7 +148,7 @@
 
 # Uses:
     # React native can be used primarily for building Mobile Apps(like Android and IOS).
-        It can be used for other plat forms like:
+        It can be used for other platforms like:
                                         1. Mobile Apps(IOS and Android).
                                         2. Windows & Mac OS desktop apps.
                                         3. TV platforms.
@@ -182,6 +180,49 @@
     EX: <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"
         integrity="sha384-3HezAURKObYs1WVq/a+3cCkHVm/8FDvLczHokgOG+GcUx1U9CFZCzLfzt9pKwqJG"
         crossorigin="anonymous"></script>
+
+
+# Same-Origin Policy vs CORS Policy
+
+These two policies are related but serve different purposes:
+
+## Same-Origin Policy
+This is a **restrictive security mechanism** implemented by browsers that:
+- Blocks JavaScript from accessing resources across different origins
+- Is the default behavior built into browsers
+- Acts as a security boundary to prevent malicious websites from accessing data on other sites
+- Is essentially a "deny by default" approach
+
+## CORS (Cross-Origin Resource Sharing)
+This is a **permissive mechanism** that:
+- Allows servers to selectively relax the same-origin policy
+- Enables controlled access to resources across origins
+- Uses HTTP headers to specify which origins can access the resource
+- Is essentially an "allow by specific permission" approach
+
+## Key Differences
+
+1. **Purpose**:
+   - Same-Origin: Restricts access (security barrier)
+   - CORS: Enables access (controlled gateway)
+
+2. **Implementation**:
+   - Same-Origin: Enforced by browsers automatically
+   - CORS: Implemented by servers through HTTP headers
+
+3. **Default behavior**:
+   - Same-Origin: Blocks cross-origin requests
+   - CORS: Provides a framework to allow specific cross-origin requests
+
+4. **Control**:
+   - Same-Origin: Browser-controlled (users/websites cannot disable it)
+   - CORS: Server-controlled (server decides who can access its resources)
+
+5. **Headers**:
+   - CORS uses specific headers like `Access-Control-Allow-Origin` to permit access
+   - Same-Origin policy doesn't use special headers; it's the default behavior
+
+Think of it this way: Same-Origin Policy is the lock on the door, while CORS is a system that allows the owner to give out specific keys to trusted visitors.
 
 =========================
 

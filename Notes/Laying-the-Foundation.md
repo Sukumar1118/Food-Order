@@ -74,7 +74,7 @@ Note: `JSX(transpiled by Babel)` ⇒ `React.createElement` ⇒  `ReactElement` �
 ● HTML uses `class` property whereas JSX uses `className` property.
 ● HTML can use `hypens` in `property names` whereas JSX uses `camelCase syntax`.
 
-📢 NOTE:    
+📢 NOTE:
 ● Use `Prettier - Code Formatter` VS Code Extension to make your code look beautiful with proper formatting.
 ● Use `ES lint` VS Code Extension for linting.
 ● Use `Better Comments` VS Code Extension to beautify your comments.
@@ -98,7 +98,7 @@ Note: `JSX(transpiled by Babel)` ⇒ `React.createElement` ⇒  `ReactElement` �
 ● `Calling a component inside another component` is Component Composition.
 
 # How to use JavaScript code inside JSX?
-● Inside a React Component when `{}` parenthesis is present we can write any JavaScript expression inside it.
+● Inside a React Component when `{}` braces is present we can write any JavaScript expression inside it.
     const number = 10000;
     const HeadingComponent = () => (
     <div id="containter">
@@ -108,7 +108,7 @@ Note: `JSX(transpiled by Babel)` ⇒ `React.createElement` ⇒  `ReactElement` �
     )
 
 # How to call React Element in JSX?
-● We can use `{}` parenthesis.
+● We can use `{}` curly braces.
 
 # What will happen if we call 2 elements inside each other?
 ● If we put `2 components inside each other`, then it will go into an `infinite loop` and the stack will    overflow.
@@ -120,7 +120,7 @@ Note: `JSX(transpiled by Babel)` ⇒ `React.createElement` ⇒  `ReactElement` �
         displayed on the screen, that attack is called cross-site scripting.
     ● It can read cookies, local storage, session storage, get cookies, get info about your device, 
         and read data.
-    ● JSx takes care of your data.
+    ● JSX takes care of your data.
     ● If some API passes some malicious data JSX will escape it.
     ● It prevents cross-site scripting and sanitizes the data before rendering.
 2) `Makes code readable`:
@@ -137,8 +137,8 @@ Preset	    | `Collection of related plugins`, often for         | @babel/preset-
               specific environmnet or framework.	
 
 Toolchain	| `Set of tools` that work together for series of    | Babel, Webpack, ESLint
-              `multiple development tasks` like ranspiling, 
-              bundling, minifying, and testing code etc.
+              `multiple development tasks` like Transpiling, 
+              Bundling, Minifying, and Testing code etc.
 
 ## Babel features:
 
