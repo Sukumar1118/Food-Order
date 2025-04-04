@@ -168,7 +168,7 @@
     # The `Access-Control-Allow-Origin` header specifies which domains are allowed to make requests to a resource. A value of `*` allows access from any domain, while specific domains can be allowed by specifying them (e.g., `https://example.com`).
 
 # SOP (Same-Origin Policy):
-    # Same-Origin Policy is a security measure that restricts web pages served from one domain from        making requests to resources on another domain.
+    # Same-Origin Policy is a security measure that restricts web pages served from one domain from making requests to resources on another domain.
 
     # CORS is an extension of SOP that allows cross-origin requests under certain conditions. SOP is enforced by the browser at various levels, including the network layer, JavaScript engine, and browser storage, ensuring resources are isolated and accessed only by scripts from the same origin.
 

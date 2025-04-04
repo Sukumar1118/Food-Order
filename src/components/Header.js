@@ -61,6 +61,12 @@ const Header = () => {
             >
               Grocery
             </Link>
+            <Link
+              className="p-2 mx-2 text-gray-700 font-medium hover:text-orange-500"
+              to={"/virtualList"}
+            >
+              List
+            </Link>
             <button
               className="p-2 mx-2 text-gray-700 font-medium hover:text-orange-500"
               onClick={() => {
