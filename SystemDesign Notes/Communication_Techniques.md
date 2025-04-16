@@ -531,3 +531,98 @@ Long polling is a viable technique for enabling real-time updates in web applica
 
 =============================================================================================================
 
+### Summary Notes on Server-Sent Events (SSE) and Related Concepts
+
+#### **Overview of Server-Sent Events (SSE)**
+- **Definition**: SSE enables a server to push real-time updates to clients over a single, long-lived HTTP connection.
+- **Key Features**:
+  - **Connection: keep-alive**: Maintains an open connection for continuous data transmission.
+    - *Example*: A stock market app keeps a connection open for live price updates every second.
+  - **event-stream**: Sends data as a stream of events.
+    - *Example*: A news website streams breaking news updates.
+  - **event | data | id**: Events include optional fields: event type, payload, and unique identifier.
+    - *Example*:
+      ```
+      event: message
+      data: Hello, world!
+      id: 1
+      ```
+  - **Connection opened**: Server starts sending events when the client connects.
+    - *Example*: A live sports score page begins sending goal updates.
+  - **Connection closed**: Connection terminates when no more updates are needed.
+    - *Example*: A user logs out, and the server ends the event stream.
+
+#### **Challenges in Implementing SSE**
+- **Browser Compatibility**: Not all browsers support SSE equally, requiring fallbacks.
+  - *Example*: An older browser switches to AJAX polling.
+- **Connection Limit**: Browsers limit simultaneous connections per domain (6-8).
+  - *Example*: A website with many live features hits this limit, causing failures.
+- **Connection Timeout**: Long-lived connections may time out if inactive.
+  - *Example*: A server sends a heartbeat every 30 seconds to prevent timeout.
+- **Background Tab Behaviour**: Browsers may suspend SSE in inactive tabs.
+  - *Example*: A chat app stops receiving messages in a minimized tab, resuming when reactivated.
+- **Resource Utilization**: Many open connections can strain server resources.
+  - *Example*: A server with 10,000 users needs load balancing.
+- **Load Balancer**: Requires "sticky sessions" to maintain server-client consistency.
+  - *Example*: A load balancer routes all updates for a user to the same server.
+- **Sticky Connection**: Ensures a client sticks to one server.
+  - *Example*: A user’s live dashboard sticks to Server A.
+- **Proxy/Firewall**: May block long-lived connections, needing configuration.
+  - *Example*: A corporate firewall blocks SSE, requiring IT adjustment.
+- **Testing**: Requires simulating long-lived connections and edge cases.
+  - *Example*: Developers use Postman to test event streams under load.
+- **Broadcasting**: Challenges in efficiently broadcasting to multiple clients.
+  - *Example*: A live auction site broadcasts bid updates to all bidders.
+
+#### **Use Cases**
+- **Long live unidirectional communication**: Data flows from server to client without client requests.
+  - *Example*: Real-time weather updates to a mobile app.
+- **Single HTTP connection**: Uses one connection for all updates.
+  - *Example*: A single connection delivers stock ticks to a trading platform.
+- **Feeds, notification, monitoring dashboard**: Ideal for real-time data.
+  - *Example*: A system admin dashboard receives server status updates every minute.
+
+#### **Implementation Example**
+- **Client-side (HTML/JavaScript):**
+  ```html
+  <script>
+    const source = new EventSource('/events');
+    source.onmessage = function(event) {
+      console.log('New message:', event.data);
+    };
+  </script>
+```
+- **Server-side (Node.js with Express):**
+  ```javascript
+  const express = require('express');
+  const app = express();
+
+  app.get('/events', (req, res) => {
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.flushHeaders();
+
+    let count = 0;
+    const interval = setInterval(() => {
+      res.write(`data: Message ${count}\n\n`);
+      count++;
+    }, 1000);
+
+    res.on('close', () => clearInterval(interval));
+  });
+
+  app.listen(3000);
+  ```
+  - *Explanation*: Server sends a new message every second; client logs it until the connection closes.
+
+#### **EventSource URL Resolution**
+- **Relative URL Behavior**: `'/events'` resolves to the current origin’s protocol, domain, and port.
+  - *Example*: On `https://example.com/page`, `'/events'` becomes `https://example.com/events`.
+  - *Example*: On `http://localhost:3000/page`, `'/events'` becomes `http://localhost:3000/events`.
+- **Cross-Origin**: Full URL required for different origins, with CORS support.
+  - *Example*: 
+    ```javascript
+    const source = new EventSource('https://otherdomain.com/events');
+    ```
+- **Same-Origin Advantage**: No full URL needed for same-origin requests, simplifying development.
